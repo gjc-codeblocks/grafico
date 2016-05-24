@@ -20,7 +20,15 @@
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
 	</head>
-	<body ng-app="sdkFacebookApp">
+	<body ng-app="sdkFacebookApp" ng-controller="sdkFBController">
+				<div class="grafico-content">
+					<div class="content">
+						<h1>Design Knowledge</h1>  
+						<svg id="svg"></svg>
+					</div>				
+				</div>
+				
+				
 				
 				<div class="fb-share-button" data-href="http://gjc-codeblocks.github.io/grafico/" data-layout="button_count" data-mobile-iframe="true"></div>
 				
@@ -45,6 +53,7 @@ window.fbAsyncInit = function() {
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.3.0/snap.svg-min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="js/bootstrap.min.js"></script>
 	
@@ -54,67 +63,5 @@ window.fbAsyncInit = function() {
 	<script src="js/app.js"></script>
 	<!--Controller-->
 	<script src="js/controller/sdkFB.controller.js"></script>
-	
-	
-	<!-- Meus scripts -->	
-	
-		<script language="JavaScript">
-		$( document ).ready(function() {
-		    setPercentage(location.search.substring(1));
-		});
-
-		var randomPercentage = function() {
-		  //var percent = Math.floor((Math.random() * 100) + 1);
-		  
-		  var percent = location.search.substring(1);
-		  
-		  setPercentage(percent);
-		}
-
-		var setText = function(text) {
-		  $('#bar span').fadeOut(500, function() {
-		        $(this).text(text).fadeIn(500);
-		    });
-		}
-
-		var setPercentage = function(percent) {
-		  if(percent < 25) {
-		    $("#bar").css( "background-color", "#f63a0f");
-		  } else if(percent < 50) {
-		    $("#bar").css( "background-color", "#f27011");
-		  } else if(percent < 75) {
-		    $("#bar").css( "background-color", "#f2b01e");
-		  } else if(percent < 90) {
-		    $("#bar").css( "background-color", "#f2d31b");
-		  } else {
-		    $("#bar").css( "background-color", "#86e01e");
-		  }
-		  
-		  if(percent < 15)
-		    setText("");
-		  else
-		    setText(percent+' %');
-		  
-		  $("#bar").css( "width", percent+'%' );
-		}
-
-		window.setInterval(function(){
-		  randomPercentage();
-		}, 5000);
-
-
-		
-		
-		
-		
-			function processUser()
-			{
-				document.getElementById("tst").innerHTML = location.search.substring(1);
-			}
-		
-</script>
-	
-	<!-- Fim dos meus scripts -->
-
 	</body>
 </html>
